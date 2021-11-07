@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract FoodCourseBuilder
+abstract FoodCourse
+
+EMartFoodCourse -up-|> FoodCourse
+RestaurantFoodCourse -up-|> FoodCourse
+
+EMartFoodCourseBuilder -down-|> FoodCourseBuilder
+RestaurantFoodCourseBuilder -down-|> FoodCourseBuilder
+
+FoodCourseBuilder ..>"생성" FoodCourse
+EMartFoodCourseBuilder .down.>"생성" EMartFoodCourse
+RestaurantFoodCourseBuilder .down.>"생성" RestaurantFoodCourse
+
+Director o---> FoodCourseBuilder
+
+@enduml

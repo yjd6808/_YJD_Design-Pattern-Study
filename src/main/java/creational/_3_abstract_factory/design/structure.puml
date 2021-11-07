@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Button {
+    void click()
+    ---
+}
+
+interface CheckBox {
+    void check()
+    ---
+}
+
+interface Scrollbar {
+    void wheel()
+    ---
+}
+
+interface UIFactory {
+    void createButton()
+    void createCheckBox()
+    void createScrollbar()
+    ---
+}
+
+
+
+
+DarkUIFactory -down-|> UIFactory
+WhiteUIFactory -down-|> UIFactory
+
+DarkUIFactory .up.>"생산" DarkButton
+WhiteUIFactory .up.>"생산" WhiteButton
+
+DarkUIFactory .up.>"생산" DarkCheckBox
+WhiteUIFactory .up.>"생산" WhiteCheckBox
+
+DarkUIFactory .up.>"생산" DarkScrollbar
+WhiteUIFactory .up.>"생산" WhiteScrollbar
+
+DarkButton -up--|> Button
+WhiteButton -up--|> Button
+
+DarkCheckBox -up--|> CheckBox
+WhiteCheckBox -up--|> CheckBox
+
+DarkScrollbar -up--|> Scrollbar
+WhiteScrollbar -up--|> Scrollbar
+
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Computer {
+    void boot()
+    ---
+}
+
+interface ComputerFactory {
+    void createComputer(ComputerType)
+    ---
+}
+
+Notebook -up-|> Computer
+Desktop -up-|> Computer
+SuperNotebook -up-|> Computer
+SuperDesktop -up-|> Computer
+SuperComputerFactory -up-|> ComputerFactory
+SuperComputerFactory -up..>"생성" SuperNotebook
+SuperComputerFactory -up..>"생성" SuperDesktop
+
+NormalComputerFactory -up-|> ComputerFactory
+NormalComputerFactory -up..>"생성" Notebook
+NormalComputerFactory -up..>"생성" Desktop
+
+@enduml

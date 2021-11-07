@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Computer
+
+Notebook -up-|> Computer
+Desktop -up-|> Computer
+ComputerFactory .up.>"생성" Notebook
+ComputerFactory .up.>"생성" Desktop
+
+@enduml
