@@ -1,0 +1,30 @@
+@startuml
+
+interface SteamPackable {
+    + steamPack()
+    --
+}
+
+interface Healable {
+    + heal()
+    --
+}
+
+interface invisible {
+    + clocking()
+    --
+}
+
+Marine .up.|> SteamPackable
+Medic .up.|> Healable
+Ghost .up.|> invisible
+Wraith .up.|> invisible
+Firebat .up.|> SteamPackable
+
+HealableToSteamPackAdapter .up.|> SteamPackable
+HealableToSteamPackAdapter -down-> Healable
+
+invisibleToSteamPackAdapter .up.|> SteamPackable
+invisibleToSteamPackAdapter --> invisible
+
+@enduml
