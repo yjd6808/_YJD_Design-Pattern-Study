@@ -1,4 +1,4 @@
-package creational._5_singleton.singleton.concurrent;
+package creational._5_singleton.concurrent;
 
 // 내부 스테틱 클래스 싱글톤 (Lazy) (매우 좋은 성능)
 public class InnerStaticSingleton {

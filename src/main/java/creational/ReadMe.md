@@ -16,7 +16,7 @@
 단순히 공장에 주문을 넣는 것으로 쉽게 획득할 수 있다.<br>
 즉, 클라이언트가 컴퓨터의 생성과정을 몰라도 된다.
 
-![팩토리 UML 구조](_1_factory/design/structure.png)<br><small>내가 디자인한 팩토리 패턴 UML</small><br>
+![팩토리 UML 구조](_1_factory/design/structure.png)<br><small>내가 디자인한 팩토리 패턴 UML</small><br><br>
 
 <hr>
 
@@ -26,7 +26,7 @@
 객체를 만들어내는 부분 : <span style="text-decoration: underline">createComputer</span>  
 서브 클래스 : <span style="text-decoration: underline">NormalComputerFactory, SuperComputerFactory</span>   
  
-![팩토리 메소드 UML 구조](_2_factory_method/design/structure.png)<br><small>내가 디자인한 팩토리 메소드 패턴 UML</small><br>
+![팩토리 메소드 UML 구조](_2_factory_method/design/structure.png)<br><small>내가 디자인한 팩토리 메소드 패턴 UML</small><br><br>
 ![위키피디아 UML 구조](_2_factory_method/design/wiki_structure.png)<br><small>위키피디아 팩토리 메소드 패턴 UML</small><br><br>
 
 <hr>
@@ -38,7 +38,7 @@
 검정색 테마를 사용할 경우 검은색 버튼, 검은색 스크롤바, 검은색 체크박스로 보일테고<br>
 하얀색 테마를 사용할 경우 하얀색 버튼, 하얀색 스크롤바, 하얀색 체크박스로 보일것이다.<br>
 
-![추상 팩토리 UML 구조](_3_abstract_factory/design/structure.png)<br><small>내가 디자인한 추상 팩토리 패턴 UML (클라이언트 제외)</small><br>
+![추상 팩토리 UML 구조](_3_abstract_factory/design/structure.png)<br><small>내가 디자인한 추상 팩토리 패턴 UML (클라이언트 제외)</small><br><br>
 ![위키피디아 빌더 UML 구조](_3_abstract_factory/design/wiki_structure.png)<br><small>위키피디아 추상 팩토리 패턴 UML</small><br><br>
 
 <hr>
@@ -49,7 +49,7 @@
 [위키피디아 링크](https://en.wikipedia.org/wiki/Builder_pattern)
 
 
-![빌더 UML 구조](_4_builder/design/structure.png)<br><small>내가 디자인한 빌더 패턴 UML</small><br>
+![빌더 UML 구조](_4_builder/design/structure.png)<br><small>내가 디자인한 빌더 패턴 UML</small><br><br>
 ![위키피디아 빌더 UML 구조](_4_builder/design/wiki_structure.png)<br><small>위키피디아 빌더 패턴 UML</small><br><br>
 
 
@@ -64,7 +64,7 @@
 
 ### 싱글톤 <small>(Singleton Pattern)</small>
 
-```전반적인 시스템에 걸쳐서 단 하나의 객체만 필요한 경우에 사용 (단 하나의 인스턴스만 존재하는 클래스)```<br>
+`전반적인 시스템에 걸쳐서 단 하나의 객체만 필요한 경우에 사용 (단 하나의 인스턴스만 존재하는 클래스)`<br>
 [위키피디아 링크](https://en.wikipedia.org/wiki/Singleton_pattern)
 
 #### 종류
@@ -75,3 +75,16 @@
   * 동기화 함수 싱글톤
   * 내부 클래스 싱글톤
   * 더블 체크드 락킹 싱글톤
+
+<hr>
+
+### 프로토타입 <small>(Prototype Pattern)</small>
+
+`이미 존재하는 객체를 기반으로 생성하는 디자인 패턴`<br>
+생성할 객체의 타입이 이미 존재하는 객체(인스턴스)로부터 결정된다.
+
+* new 를 이용해서 생성하는 비용이 매우 클 때 사용한다.<br>
+  → 만약 생성시마다 DB에 접근하는 경우라면 이미 존재하는 객체를 클론하여 쓰는게 훨씬 비용이 싸다.   
+
+![프로토타입 UML 구조](_6_prototype/design/structure.png)<br><small>내가 디자인한 프로토타입 패턴 UML</small><br><br>
+![위키피디아 빌더 UML 구조](_6_prototype/design/wiki_structure.png)<br><small>위키피디아 프로토타입 패턴 UML</small><br><br>

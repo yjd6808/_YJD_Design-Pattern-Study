@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package 자동차 {
+
+    abstract Car {
+        + prototype()
+        --
+    }
+
+    HomeCar -up-|> Car
+    RacingCar -up-|> Car
+    ElectricCar -up-|> Car
+
+    CarFactory *-up-> HomeCar
+    CarFactory *-up-> RacingCar
+    CarFactory *-up-> ElectricCar
+}
+
+class PrototypeMain {
+    [클라이언트 클래스]
+    자동차 공장에서 생산된 자동차를 구매하여
+    커스터마이징 후 사용한다.
+    --
+}
+
+PrototypeMain --> 자동차
+
+@enduml

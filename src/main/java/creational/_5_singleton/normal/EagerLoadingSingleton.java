@@ -1,4 +1,4 @@
-package creational._5_singleton.singleton.normal;
+package creational._5_singleton.normal;
 
 // ÀÌ¸¥ ·Îµù ½Ì±ÛÅæ
 public class EagerLoadingSingleton {

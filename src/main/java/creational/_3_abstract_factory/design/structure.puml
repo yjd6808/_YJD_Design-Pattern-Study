@@ -24,6 +24,11 @@ interface UIFactory {
 }
 
 
+class Intellij {
+    Client 클래스이다
+    ---
+}
+
 
 
 DarkUIFactory -down-|> UIFactory
@@ -46,6 +51,13 @@ WhiteCheckBox -up--|> CheckBox
 
 DarkScrollbar -up--|> Scrollbar
 WhiteScrollbar -up--|> Scrollbar
+
+
+Intellij -down-> Button
+Intellij -down-> Scrollbar
+Intellij -down-> CheckBox
+Intellij -down->  DarkUIFactory
+Intellij -down->  WhiteUIFactory
 
 
 @enduml

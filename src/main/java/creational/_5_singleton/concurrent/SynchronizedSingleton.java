@@ -1,4 +1,4 @@
-package creational._5_singleton.singleton.concurrent;
+package creational._5_singleton.concurrent;
 
 // 동기화 함수 싱글톤 (Lazy) - 성능 매우 안좋음
 public class SynchronizedSingleton {
@@ -14,5 +14,4 @@ public class SynchronizedSingleton {
 
 		return s_instance;
 	}
-
 }
