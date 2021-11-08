@@ -7,6 +7,7 @@
 * [√ﬂªÛ ∆—≈‰∏Æ](https://youtu.be/XTgCYtQAQ4c?list=PLDV-cCQnUlIYcAmW4j27i8aYPbja9HePm)
 * [∫Ù¥ı](https://youtu.be/qWiqt5EctSE?list=PLDV-cCQnUlIYcAmW4j27i8aYPbja9HePm)
 * [ΩÃ±€≈Ê](https://youtu.be/-oy5jOd5PBg?list=PLDV-cCQnUlIYcAmW4j27i8aYPbja9HePm)
+* [«¡∑Œ≈‰≈∏¿‘](https://youtu.be/F7dVyB48grs?list=PLDV-cCQnUlIYcAmW4j27i8aYPbja9HePm)
 
 <hr>
 
