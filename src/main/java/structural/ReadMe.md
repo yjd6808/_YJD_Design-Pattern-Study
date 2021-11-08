@@ -31,3 +31,28 @@
 ![위키피디아 어댑터 UML 구조](_1_adapter/design/wiki_structure.png)<br><small>위키피디아 어댑터 패턴 UML</small><br><br>
 
 <hr>
+
+### 프록시 <small>(Proxy Pattern)</small>
+
+`다른 객체의 인터페이스 역할을 수행할 수 있도록 해주는 디자인 패턴`
+
+다른 객체는 특별한 무엇인가가 아니라 아무거나 다 된다.<br>
+
+**무슨 문제를 해결 할 수 있는가?**
+1. 객체에 접근 또는 객체의 기능을 제어해야하는 경우
+2. 객체에 접근 또는 객체의 기능 사용시 추가적인 기능이 요구되는 경우
+
+
+**프록시가 주로 사용되는 경우**
+
+1. 네트워크 연결 
+2. 메모리 안의 커다란 객체
+3. 파일
+4. 또 복제할 수 없거나 수요가 많은 리소스
+
+![프록시 UML 구조](_2_proxy/design/structure_v2.png)<br><small>내가 디자인한 프록시 패턴 UML</small><br><br>
+![위키피디아 프록시 UML 구조](_2_proxy/design/wiki_structure.png)<br><small>위키피디아 프록시 패턴 UML</small><br><br>
+
+<hr>
+
+### 프록시 <small>(Proxy Pattern)</small>

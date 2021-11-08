@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Program {
+    + loadToMemory()
+    --
+}
+
+abstract Game {}
+abstract Utility {}
+
+Game .up.|> Program
+Utility .down.|> Program
+ProxyGame .up.|> Program
+ProxyGame -left> Game
+ProxyUtility -left-> Utility
+ProxyUtility .down.|> Program
+
+LeagueOfLegend -up-|> Game
+Sonic3 -up-|> Game
+
+Alzip -down-|> Utility
+CommandPrompt -down-|> Utility
+
+
+
+
+@enduml
