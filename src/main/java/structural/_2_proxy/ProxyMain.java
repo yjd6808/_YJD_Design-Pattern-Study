@@ -27,12 +27,20 @@ public class ProxyMain {
 		System.out.println("================================");
 		System.out.println("[프록시를 거쳐서 실행하는 경우]");
 
-		new ProxyGame(sonic3).loadToMemory();
-		new ProxyGame(leagueOfLegend).loadToMemory();
-		new ProxyGame(superMario).loadToMemory();
+		ProxyGame proxySonic3 = new ProxyGame("소닉3", GameDifficulty.EASY);
+		ProxyGame proxyLoL = new ProxyGame("리그 오브 레전드", GameDifficulty.SUPERHARD);
+		ProxyGame proxySuperMario = new ProxyGame("슈퍼마리오", GameDifficulty.NORMAL);
 
-		new ProxyUtility(alzip).loadToMemory();
-		new ProxyUtility(commandPrompt).loadToMemory();
-		new ProxyUtility(fetchedAlzip).loadToMemory();
+		ProxyUtility proxyAlzip = new ProxyUtility("알집", false);
+		ProxyUtility proxyCmd = new ProxyUtility("커맨드 프롬프트", false);
+		ProxyUtility proxyfetchedAlzip = new ProxyUtility("패치된 알집", true);
+
+		proxySonic3.loadToMemory();
+		proxyLoL.loadToMemory();
+		proxySuperMario.loadToMemory();
+
+		proxyAlzip.loadToMemory();
+		proxyCmd.loadToMemory();
+		proxyfetchedAlzip.loadToMemory();
 	}
 }
