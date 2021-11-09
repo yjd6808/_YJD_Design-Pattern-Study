@@ -1,0 +1,62 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Computer {
+    퍼사드 객체
+    --
+    + boot()
+    + launchProgram()
+}
+class FacadeMain {
+    클라이언트
+    --
+}
+
+package Hardware {
+    class Ram {
+        + loadBytes(byte[])
+        --
+    }
+    class HardDisk {
+        + readBytes(int)
+        --
+    }
+    class CPU {
+        + compute(byte)
+        --
+    }
+    class MainBoard {
+    }
+
+    MainBoard --> CPU
+    MainBoard *--> HardDisk
+    MainBoard *--> Ram
+
+    class ControlSystem {
+        --
+    }
+    class Mouse {
+        + move()
+        + click()
+        --
+    }
+    class Keyboard {
+        + pressKey(KeyCode)
+        --
+    }
+    class ComputerCase {
+        + pressPowerButton()
+        --
+    }
+
+    ControlSystem --> Mouse
+    ControlSystem --> Keyboard
+    ControlSystem --> ComputerCase
+}
+
+FacadeMain -down-> Computer
+Computer -down-> MainBoard
+Computer -down-> ControlSystem
+
+@enduml

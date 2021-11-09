@@ -55,4 +55,28 @@
 
 <hr>
 
-### 프록시 <small>(Proxy Pattern)</small>
+### 퍼사드 <small>(Facade Pattern)</small>
+
+`복잡한 내부 인터페이스가 안보이도록 전면에 세워놓은 객체이다.`<br>
+`클래스 라이브러리 같은 복잡한 코드에 대한 간략화된 인터페이스를 제공하는 객체이다.`
+
+예를들어 컴퓨터를 다루는 일반인의 경우 컴퓨터의 프로그램이 어떤 방식으로 실행되는지에 대한
+자세한 동작원리에 대한 지식은 필요 없다.  
+ 단순히 마우스 더블클릭으로 프로그램을 실행하면 컴퓨터 내부적으로 작업을 수행해주기 때문이다.
+
+![퍼사드 검색](_3_facade/design/facade.png)<br><small>퍼사드를 검색하면 나오는 건물 정면 사진들</small><br><br>
+
+#### [퍼사드 패턴을 사용하는 경우]
+1. 복잡한 구조의 소프트웨어 라이브러리를 사용할 때 가독성과 사용 편리성을 개선 시키고자 하는 경우<br>
+   &nbsp;&nbsp;ex) 복잡한 인터페이스를 가진 라이브러리를 간단하게 사용할 수 있도록 개발된 새로운 라이브러리 
+2. 좀 더 일반적인 기능을 제공하고자 하는 경우
+3. serve as a launching point for a broader refactor of monolithic or tightly-coupled systems in favor of more loosely-coupled code<br>
+   강하게 결합된 시스템에 대해 느슨한 결합 구조의 시작지점을 제공하고자 할 때? 먼소리지
+
+
+![퍼사드 UML 구조](_3_facade/design/structure.png)<br><small>내가 디자인한 퍼사드 패턴 UML</small><br><br>
+![위키피디아 퍼사드 UML 구조](_3_facade/design/wiki_structure.png)<br><small>위키피디아 퍼사드 패턴 UML</small><br><br>
+
+<hr>
+
+### 퍼사드 <small>(Facade Pattern)</small>
