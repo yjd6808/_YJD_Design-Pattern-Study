@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface InterfaceGun {
+    + void fire()
+    + void printInfo()
+    --
+}
+
+abstract GunDecorator {
+    - Gun gun
+}
+
+class ScopeGunDecorator  {
+    스코프 기능이 추가된 총
+    정확성을 상승시킨다.
+    --
+}
+
+class SpringGunDecorator  {
+    스프링이 추가로 장착된 총
+    사거리를 상승 시킨다.
+    --
+}
+
+class WingGunDecorator {
+    날개가 달려있어서
+    무게를 감소 시킨다.
+    --
+}
+
+NormalGun -up-|> InterfaceGun
+LaserGun -up-|> InterfaceGun
+GunDecorator .up.|> InterfaceGun
+GunDecorator .up.> InterfaceGun
+
+ScopeGunDecorator -up-|> GunDecorator
+SpringGunDecorator -up-|> GunDecorator
+WingGunDecorator -up-|> GunDecorator
+
+@enduml

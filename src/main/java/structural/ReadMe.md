@@ -79,4 +79,26 @@
 
 <hr>
 
-### 퍼사드 <small>(Facade Pattern)</small>
+### 데코레이터 <small>(Decorator Pattern)</small>
+
+`클래스의 다른 오브젝트의 기능에 영향을 주지않고 동적으로 기능을 추가해줄 수 있는 방법이다.`
+
+[참고 블로그](https://coding-factory.tistory.com/713?category=974095)  
+[참고 위키피디아](https://en.wikipedia.org/wiki/Decorator_pattern)
+
+[장점]
+1. 반복되는 설계 문제 대해 유연한 해결방법을 제시한다.
+2. 테스트, 재사용, 확장이 쉽다.
+3. 기존 코드를 수정하지 않고도 데코레이터 패턴을 통해 기능을 확장시킬 수 있다.<br>
+   &nbsp;→ 단일 책임의 원칙 - SRP(Single Responsibility Principle)를 지키기 좋다.
+
+[단점]
+1. 코드가 필요 이상으로 복잡해질 수 있다.
+
+[필요한 경우]
+1. 여러 요소들을 조합해서 사용하는 클래스 구조인 경우
+2. 클래스의 요소들을 계속해서 수정하면서 사용하는 구조가 필요한 경우
+
+
+![데코레이터 UML 구조](_4_decorator/design/structure.png)<br><small>내가 디자인한 데코레이터 패턴 UML</small><br><br>
+![위키피디아 데코레이터 UML 구조](_4_decorator/design/wiki_structure.png)<br><small>위키피디아 데코레이터 패턴 UML</small><br><br>
