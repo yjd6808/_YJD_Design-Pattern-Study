@@ -34,9 +34,10 @@
 
 ### 프록시 <small>(Proxy Pattern)</small>
 
-`다른 객체의 인터페이스 역할을 수행할 수 있도록 해주는 디자인 패턴`
+`다른 객체와 이어지는 인터페이스 역할을 수행할 수 있도록 해주는 디자인 패턴`
 
 다른 객체는 특별한 무엇인가가 아니라 아무거나 다 된다.<br>
+중간에서 이어주는 역할?
 
 **무슨 문제를 해결 할 수 있는가?**
 1. 객체에 접근 또는 객체의 기능을 제어해야하는 경우
@@ -102,3 +103,24 @@
 
 ![데코레이터 UML 구조](_4_decorator/design/structure.png)<br><small>내가 디자인한 데코레이터 패턴 UML</small><br><br>
 ![위키피디아 데코레이터 UML 구조](_4_decorator/design/wiki_structure.png)<br><small>위키피디아 데코레이터 패턴 UML</small><br><br>
+
+<hr>
+
+### 브릿지 <small>(Bridge Pattern)</small>
+
+`추상층과 내부 구현을 분리하여 둘을 매우 독립적으로 변형할 수 있게 만들어주는 패턴이다.`
+
+추상층이라는게 겉으로 드러나는 UI 같은걸 말하고 내부 구현은 UI 동작 로직? 그런걸 말한다.
+예를들어 추상층에 자동차가 있으면 내부 구현으로는 엔진이 있을 수 있겠다.
+
+[언제 사용하는가?]
+1. 추상층과 구현층이 서로 독립적으로 확장 및 정의되야할 경우<br>
+    -> 도형이 있고 그 도형을 그리는 API가 각각 달라지는 경우?<br>
+    new Circle(new SuperDrawAPI()), new Circle(new NormalDrawAPI()) 
+2. A compile-time binding between an abstraction and its implementation should be avoided so that an implementation can be selected at run-time.<br>
+   내 해석 : 추상층과 그 추상층의 구현의 연결이 컴파일 타임이 아닌 런타임 중에 내부 구현이 선택되어야 하는 경우<br>
+    -> 음.. 1번 예시처럼 SuperDrawAPI 선택버튼을 누르면 런타임중에 도형이 그려지는 로직이 바뀔 수 있으니.. 그러는 듯?
+
+
+![브릿지 UML 구조](_5_bridge/design/structure.png)<br><small>내가 디자인한 브릿지 패턴 UML</small><br><br>
+![위키피디아 브릿지 UML 구조](_5_bridge/design/wiki_structure.png)<br><small>위키피디아 브릿지 패턴 UML</small><br><br>

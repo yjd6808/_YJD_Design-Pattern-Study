@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract Car {
+    추상층의 자동차
+    내부 구현(Engine)을 숨긴다.
+    --
+    - Engine engine
+    --
+    + void drive()
+    + void stop()
+}
+
+abstract Train {
+    추상층의 기차
+    내부 구현(Engine)을 숨긴다.
+    --
+    - Engine engine
+    --
+    + void run()
+    + void stop()
+}
+
+
+interface IEngine {
+    자동차의 내부 구현
+    --
+    void powerUp()
+    void powerDown()
+}
+
+SuperCar -u-|> Car
+NormalCar -u-|> Car
+
+SuperTrain -u-|> Train
+NormalTrain -u-|> Train
+
+Car -r-> IEngine
+Train -l-> IEngine
+
+DieselEngine .u.|> IEngine
+GasolineEngine .u.|> IEngine
+GasEngine .u.|> IEngine
+
+
+@enduml
