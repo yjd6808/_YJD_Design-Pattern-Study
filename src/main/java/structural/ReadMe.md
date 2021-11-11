@@ -124,3 +124,34 @@
 
 ![브릿지 UML 구조](_5_bridge/design/structure.png)<br><small>내가 디자인한 브릿지 패턴 UML</small><br><br>
 ![위키피디아 브릿지 UML 구조](_5_bridge/design/wiki_structure.png)<br><small>위키피디아 브릿지 패턴 UML</small><br><br>
+
+<hr>
+
+### 플라이웨이트 <small>(FlyWeight Pattern)</small>
+
+`메모리 절약을 위해 용량이 큰 오브젝트의 일부 데이터를 공유하는 방법`
+
+예를들어 우리가 작성하는 한글2020 문서가 있다고 하자<br>
+문서에는 문장들이 존재한다. 각 문장들마다 글꼴, 두께, 그리고 다른 종류의 포맷들이 있다.<br>
+그리고 우리는 문서에 5000줄의 문장을 작성했다.<br>
+
+* 1000줄의 문장 : 나눔 글꼴, 이탈릭체, 30pt를 사용했다.
+* 1500줄의 문장 : 고딕 글꼴, 밑줄체, 22pt 크기를 사용했다.
+* 2500줄의 문장 : 바탕 글꼴, 이탈릭, 밑줄체, 50pt의 크기를 사용했다.
+
+아래와 같은 느낌..
+
+![내가 생각한 한글 문서](_6_flyweight/design/explanation.png)<br><small>내가 생각한 한글 문서의 플라이웨이트</small><br><br>
+
+![플라이웨이트 UML 구조](_6_flyweight/design/structure.png)<br><small>내가 디자인한 플라이웨이트 패턴 UML</small><br><br>
+![위키피디아 플라이웨이트 UML 구조](_6_flyweight/design/wiki_structure.png)<br><small>위키피디아 플라이웨이트 패턴 UML</small><br><br>
+
+[중요한 점]
+플라이웨이트의 경우 메모리 절약을 위해 사용하는 패턴이다.<br>
+변화가 없는 중복된 기능의 인스턴스 생성을 피하는 것을 목적으로 하기 때문에<br>
+static 변수로 중복된 데이터를 묶는 간단한 행위 조차도 플라이웨이트가 될 수 있다. <br>
+정해진 클래스 구조가 없다는 말이다.
+
+<hr>
+
+### 플라이웨이트 <small>(FlyWeight Pattern)</small>

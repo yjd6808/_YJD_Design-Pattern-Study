@@ -1,0 +1,66 @@
+@startuml
+'https://plantuml.com/class-diagram
+!theme cyborg
+
+
+
+cloud 한글2020 {
+    file 문서 {
+        rectangle "문장1" as sentenceA {
+        }
+        rectangle "문장2" as sentenceB {
+        }
+        rectangle "문장3" as sentenceC {
+        }
+        rectangle "문장4" as sentenceD {
+        }
+        rectangle "문장5" as sentenceE {
+        }
+        rectangle "문장6" as sentenceF {
+        }
+
+        package "폰트 포맷 (공유)" {
+            package "글꼴" {
+                rectangle "나눔" as familyA #aliceblue;line:blue;line.dotted;text:blue {
+                }
+
+                rectangle "고딕" as familyB #aliceblue;line:blue;line.dotted;text:blue {
+                }
+
+                rectangle "바탕" as familyC #aliceblue;line:blue;line.dotted;text:blue {
+                }
+            }
+
+            package "스타일" {
+                rectangle "이탈릭체" as styleA #lightgray;line.dotted;text:black {
+                }
+
+                rectangle "기본체" as styleB #lightgray;line.dotted;text:black {
+                }
+
+                rectangle "밑줄" as styleC  #lightgray;line.dotted;text:black {
+                }
+            }
+        }
+
+        sentenceA .d.> familyA  #yellow
+        sentenceA .d.> styleA   #yellow
+
+        sentenceB .d.> familyA  #yellow
+        sentenceB .d.> styleA   #yellow
+
+        sentenceC ..d.> familyB  #white
+        sentenceC ..d.> styleB   #white
+
+        sentenceD ..d.> familyB  #white
+        sentenceD ..d.> styleB   #white
+
+        sentenceE ..d.> familyB  #white
+        sentenceE ..d.> styleB   #white
+
+        sentenceF ...d.> familyC  #black
+        sentenceF ...d.> styleC   #black
+    }
+}
+
+@enduml
