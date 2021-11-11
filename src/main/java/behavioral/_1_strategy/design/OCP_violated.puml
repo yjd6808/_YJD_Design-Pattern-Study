@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+allowmixing
+
+hide empty methods
+hide empty fields
+
+interface ICollection {
+    + void sort()
+}
+
+class Array
+note bottom: sort() 함수를 버블정렬로 구현
+
+class LinkedList
+note bottom: sort() 함수를 선택정렬로 구현
+
+Array .u.|> ICollection
+LinkedList .u.|> ICollection
+
+
+
+@enduml

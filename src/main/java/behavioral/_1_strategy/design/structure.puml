@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty methods
+hide empty fields
+
+abstract class Collection {
+    - ISortStrategy sortStrategy
+    --
+    + Collection() 디폴트 정렬 전략 선택!
+    + Collection(ISortStrategy sortStrategy)
+    ---
+    + setSortStrategy(ISortStrategy sortStrategy)
+    + sort()
+}
+
+interface ISortStrategy {
+    + void sort(Collection)
+}
+
+BubbleSortStrategy .u.|> ISortStrategy
+SelectionSortStrategy .u.|> ISortStrategy
+MergeSortStrategy .u.|> ISortStrategy
+
+Array .u.|> Collection
+LinkedList .u.|> Collection
+
+Collection -r-> ISortStrategy
+
+
+
+
+
+@enduml
