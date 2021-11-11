@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!theme toy
+
+rectangle "다이너마이트" as b1 #lightyellow {
+
+}
+
+rectangle "C4" as b2
+rectangle "핵폭탄" as b3
+rectangle "폭탄 꾸러미" as b4 #yellow
+
+rectangle "C4" as b2_1
+rectangle "다이너마이트" as b2_2
+rectangle "핵폭탄" as b2_3
+rectangle "폭탄 꾸러미" as b2_4 #yellow
+
+rectangle "폭탄 꾸러미" as b3_1 #yellow
+rectangle "폭탄 꾸러미" as b3_2 #yellow
+
+rectangle "다이너마이트" as b4_1
+
+
+b4 -d-> b2_1
+b4 -d-> b2_2
+b4 -d-> b2_3
+b4 -d-> b2_4
+
+b2_4 -d-> b3_1
+b2_4 -d-> b3_2
+
+b3_1 -d-> b4_1
+
+b2 -r-b3 #transparent
+
+
+
+@enduml

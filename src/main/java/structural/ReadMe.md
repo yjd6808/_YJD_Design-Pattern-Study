@@ -127,7 +127,7 @@
 
 <hr>
 
-### 플라이웨이트 <small>(FlyWeight Pattern)</small>
+### 플라이웨이트 <small>(Flyweight Pattern)</small>
 
 `메모리 절약을 위해 용량이 큰 오브젝트의 일부 데이터를 공유하는 방법`
 
@@ -154,4 +154,27 @@ static 변수로 중복된 데이터를 묶는 간단한 행위 조차도 플라이웨이트가 될 수 있다.
 
 <hr>
 
-### 플라이웨이트 <small>(FlyWeight Pattern)</small>
+### 컴포지트 <small>(Composite Pattern)</small>
+
+`단일 오브젝트와 그룹 오브젝트를 동일한 인터페이스를 상속받아 구현하여 단일 오브젝트, 그룹 오브젝트 모두 동일하게 다룰 수 있도록 한다.`
+
+예를들어 폭발물(Explosive) 인터페이스를 상속받아 컴포지트 패턴 구조를 만들면 다음과 같다. 
+다이너마이트(단일), C4(단일), 핵폭탄(단일), 폭탄 꾸러미(그룹) 오브젝트가 존재한다.
+다이너마이트도, C4, 핵폭탄, 폭탄 꾸러미 모두 펑! 할 수 있다.
+폭탄 꾸러미 또한 펑! 할 수 있고 폭발을 하게 되면 내부 요소들도 같이 펑! 할 수 있다.
+
+그림으로 표현하면 다음과 같은 구조가 될 수 있다.
+
+
+![내가 생각한 구조](_7_composite/design/explanation.png)<br><small>내가 생각한 컴포지트 구조</small><br><br>
+
+[어떤 문제를 해결할 수 있을까?]
+1. 클라이언트가 단일, 그룹 오브젝트를 동일한 방식으로 다루고자 할 때
+2. 클라이언트가 단일, 그룹 계층 구조를 트리 구조로 나타내고자 할 때
+
+[언제 사용할까?]<br>
+Composite should be used when clients ignore the difference between compositions of objects and individual objects.[1] If programmers find that they are using multiple objects in the same way, and often have nearly identical code to handle each of them, then composite is a good choice; it is less complex in this situation to treat primitives and composites as homogeneous.<br>
+
+컴포지트 패턴은 단일 오브젝트와 그룹 오브젝트를 동일하게 다루고자 할 때 사용한다.<br>
+그룹 오브젝트를 단일 오브젝트와 마찬가지로 거의 동일한 코드로 사용하게 된다면 컴포지트 패턴이
+좋은 선택이 될 수 있다.

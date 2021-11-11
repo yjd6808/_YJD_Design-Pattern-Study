@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty fields
+hide empty methods
+
+
+interface Bomb {
+    + void explode()
+}
+
+class BombPackage {
+    - List<Bomb> bombs
+    --
+    + addBomb(Bomb)
+}
+
+C4 .u.|> Bomb
+Dynamite .u.|> Bomb
+Nuclear .u.|> Bomb
+BombPackage .u.|> Bomb
+BombPackage o--> Bomb
+
+@enduml
