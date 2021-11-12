@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty methods
+hide empty fields
+
+class User {
+    + void do()
+    --
+    - void run()
+    - void stop()
+    - void walk()
+}
+
+note left
+public void do() {
+    switch (moveState) {
+        case RUN: run();
+        case STOP: stop();
+        case WALK: walk();
+    }
+}
+end note
+@enduml

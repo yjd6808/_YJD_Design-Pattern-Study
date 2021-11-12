@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty methods
+hide empty fields
+
+class User {
+    - IMoveState moveState
+    --
+    + setMoveState(MoveState)
+    + move()
+}
+
+interface IMoveState {
+    + move(User)
+}
+
+WalkState .u.|> IMoveState
+StopState .u.|> IMoveState
+RunState .u.|> IMoveState
+
+User -r-> IMoveState
+
+@enduml
