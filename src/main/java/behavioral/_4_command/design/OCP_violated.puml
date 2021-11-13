@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Wizard {
+    - StartPage startPage
+    - EndPage endPage
+    - DownloadPage downloadPage;
+    --
+    + void next()
+    + void previous()
+    - void show()
+}
+
+note right
+void next() {
+    currentPage++;
+    show();
+}
+
+void previous() {
+    currentPage--;
+    show();
+}
+
+void show() {
+    if (currentPage == 1) {
+        startPage.show();
+    } else if (currentPage == 2) {
+        downloadPage.show();
+    } else {
+        lastPage.show();
+    }
+}
+end note
+
+@enduml

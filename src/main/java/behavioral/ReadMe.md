@@ -75,7 +75,7 @@ OCP : 확장에 대해서는 개방(Open)되어있고 수정에 대해서는 닫혀있는(Closed)구조를 
 
 <hr>
 
-### 템플릿 메소드 <small>(Strategy Pattern)</small>
+### 템플릿 메소드 <small>(Template Method Pattern)</small>
 
 `작업을 수행하는 알고리즘(함수)의 기본 구조를 만들고 이를 서브 클래스로 만들어서 기본 구조는 바꾸지 않으면서 특정 단계에서 수행하는 알고리즘의 내용을 바꾸는 방법이다.`
 
@@ -97,4 +97,50 @@ OCP : 확장에 대해서는 개방(Open)되어있고 수정에 대해서는 닫혀있는(Closed)구조를 
 ![템플릿 메소드 UML 구조](_3_template_method/design/structure.png)<br><small>내가 디자인한 템플릿 메소드 패턴 UML</small><br><br>
 ![위키피디아 템플릿 메소드 UML 구조](_3_template_method/design/wiki_structure.png)<br><small>위키피디아 템플릿 메소드 패턴 UML</small><br><br>
 
+<hr>
 
+### 커맨드 <small>(Command Pattern)</small>
+
+`요청을 객체의 형태로 캡슐화하여 사용자가 보낸 요청을 원하는 시점에 수행할 수 있도록 하는 방법`
+
+커맨드 패턴은 4개의 용어가 항상 따라다닌다.
+
+1. 명령 (Command)  
+   → 사용자의 요청
+2. 발동자 (Invoker)  
+   → 명령을 실행하는 객체
+3. 수신자 (Receiver)  
+   → 명령으로 실행되는 객체
+4. 클라이언트 (Client)  
+   → 사용자
+
+예를들어 보겠다.
+
+우리가 프로그램을 설치할 때 설치 프로그램을 실행하여 일련의 과정을 수행하여 최종적으로
+설치를 마치게 된다.
+
+이때 우리는 각 과정에 원하는 설정을 한 후 중간단계 또는 마지막에 설치가 이뤄지고
+사용자는 설치 후의 작업에 대해 추가 설정을 한 후 최종적으로 유저가 Finish 버튼을 눌러서
+설치를 완료하게 된다.
+
+위 예시에서 커맨드 패턴을 이루는 원소에 해당하는 부분을 말해보겠다.
+
+발동자(Invoker)  
+→ 설치 프로그램(Wizard)에 해당한다.  
+명령(Command)    
+→ 각각의 페이지들  
+수신자(Receiver)    
+→ 페이지의 구체적인 내용이다.   
+설치 경로를 지정하는 페이지는 설치 경로를 입력받는 텍스트 박스가 보여질 수 있다.  
+
+한번 코드로 만들어보자.
+
+![커맨드 UML 구조](_4_command/design/structure.png)<br><small>내가 디자인한 커맨드 패턴 UML</small><br><br>
+![위키피디아 커맨드 UML 구조](_4_command/design/wiki_structure.png)<br><small>위키피디아 커맨드 패턴 UML</small><br><br>
+
+
+![OCP 위반 예시](_4_command/design/OCP_violated.png)<br><small>OCP를 위반한 구조</small><br><br>
+
+만약 위와 같은 구조로 Wizard 클래스를 구현한다면 페이지(커맨드) 추가를 할 때마다 show() 함수의 수정이 필요해진다.  
+그리고 Wizard 클래스는 내부 필드 startPage, endPage, downloadPage에 의존성을 가지기 때문에 필수적으로 
+객체의 정보를 주입해줘야한다.

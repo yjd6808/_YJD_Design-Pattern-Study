@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty fields
+hide empty methods
+
+class Wizard {
+    실행자
+    --
+    - Deque<Page> pages;
+    --
+    + void addPage(Page)
+    + void next()
+    + void previous()
+    + boolean finish()
+}
+
+abstract Page {
+    명령
+    --
+    - List<IControl> controls
+    --
+    + void show()
+    + void initializeControls()
+}
+
+interface IControl {
+    수신자
+    --
+    + void show()
+}
+
+Label .u.|> IControl
+TextField .u.|> IControl
+
+Wizard *-r-> Page
+Page *-r-> IControl
+
+StartPage .u.|> Page
+SetupPage .u.|> Page
+LastPage .u.|> Page
+
+@enduml
