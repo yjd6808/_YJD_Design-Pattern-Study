@@ -7,7 +7,7 @@
 * [템플릿 메소드](https://coding-factory.tistory.com/712)
 * [커맨드](https://victorydntmd.tistory.com/295)
 * [책임 연쇄](https://ko.wikipedia.org/wiki/%EC%B1%85%EC%9E%84_%EC%97%B0%EC%87%84_%ED%8C%A8%ED%84%B4)
-
+* [옵저버](https://ko.wikipedia.org/wiki/%EC%98%B5%EC%84%9C%EB%B2%84_%ED%8C%A8%ED%84%B4)
 
 <hr>
 
@@ -195,3 +195,43 @@ COR(Chain Of Responsibiliy)을 사용하여 이를 해결해보자.
 ![위키피디아 책임 연쇄 UML 구조](_5_chain_of_responsibility/design/wiki_structure.png)<br><small>위키피디아 책임 연쇄 패턴 UML</small><br><br>
 
 <hr>
+
+### 옵저버 <small>(Observer Pattern)</small>
+
+`어떤 객체의 상태가 변할 때 그와 연관된 객체 들에게 알림을 보내는 방법`
+
+주로 이벤트 핸들링 시스템에 사용된다.  
+
+옵저버라는 단어를 가장 쉽게 이해하는 방법이 스타크래프트의 옵저버 유닛을 예로 들 수 있다.  
+옵저버는 주변 상태변화를 관찰하고 이를 게임을 플레이하거나 관전중인 유저들에게 알려주는 역할을 수행한다.
+
+이제 옵저버 패턴에 걸맞는 예시를 들어보겠다.  
+나는 콘솔창에서 발생할 다음 2가지 상태변화시 원하는 기능을 수행하고 싶다.
+
+1. 콘솔창에 출력을 할 때
+2. 콘솔창에 입력을 할 때
+
+이를 위해 2가지 클래스를 정의하였다.  
+
+콘솔을 관찰할 수 있는 클래스 : ConsoleObservable (콘솔 옵저버블)
+콘솔을 관찰할 인터페이스 : ConsoleObserver (콘솔 옵저버)  
+입,출력 콘솔 : ConsoleManager
+
+아래와 같은 구조를 뛴다.
+
+![옵저버 UML 구조](_6_observer/design/structure.png)<br><small>내가 디자인한 옵저버 패턴 UML</small><br><br>
+
+어디서 많이 본 구조이다.  
+C#의 이벤트와 동작방식이 같다 ㅋㅋ  
+
+1. 콘솔의 write 함수 호출 시  
+&nbsp;&nbsp;&nbsp;콘솔의 출력 발생 → 콘솔 출력 옵저버블이 옵저버들에게 정보 전달 → 각 옵저버들마다 정보 수신
+2. 콘솔의 read 함수 호출 시  
+&nbsp;&nbsp;&nbsp;콘솔의 입력 발생 → 콘솔 입력 옵저버블이 옵저버들에게 정보 전달 → 각 옵저버들마다 정보 수신
+
+![위키피디아 옵저버 UML 구조](_6_observer/design/wiki_structure.png)<br><small>위키피디아 옵저버 패턴 UML</small><br><br>
+
+<hr>
+
+### fsefes <small>(adfadfa Pattern)</small>
+

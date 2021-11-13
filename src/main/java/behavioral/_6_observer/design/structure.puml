@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty methods
+hide empty fields
+allowmixing
+
+interface ConsoleObserver {
+    콘솔의 상태변화를 관찰할 녀석
+    --
+    + void update(String arg)
+}
+
+TimeObserver .u.|> ConsoleObserver
+HelloObserver .u.|> ConsoleObserver
+
+rectangle "else... (anonymous)" as rec
+rec .u.|> ConsoleObserver
+
+class ConsoleObservable {
+    콘솔을 관찰할 수 있는 녀석
+    --
+    - List<ConsoleObserver> observers
+    --
+    + notifyAll(String msg)
+    + register(Observer)
+    + unRegister(Observer)
+}
+
+class ConsoleManager<<Singleton>> {
+    관찰 대상
+    --
+    + ConsoleObservable readObservable
+    + ConsoleObservable writeObservable
+    --
+    + void write(String msg)
+    + String read()
+}
+
+ConsoleObservable *-l-> ConsoleObserver
+ConsoleManager -u-> ConsoleObservable
+
+@enduml
