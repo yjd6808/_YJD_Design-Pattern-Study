@@ -5,6 +5,8 @@
 * [전략](https://victorydntmd.tistory.com/292)
 * [상태](https://victorydntmd.tistory.com/294)
 * [템플릿 메소드](https://coding-factory.tistory.com/712)
+* [커맨드](https://victorydntmd.tistory.com/295)
+* [책임 연쇄](https://ko.wikipedia.org/wiki/%EC%B1%85%EC%9E%84_%EC%97%B0%EC%87%84_%ED%8C%A8%ED%84%B4)
 
 
 <hr>
@@ -141,6 +143,55 @@ OCP : 확장에 대해서는 개방(Open)되어있고 수정에 대해서는 닫혀있는(Closed)구조를 
 
 ![OCP 위반 예시](_4_command/design/OCP_violated.png)<br><small>OCP를 위반한 구조</small><br><br>
 
-만약 위와 같은 구조로 Wizard 클래스를 구현한다면 페이지(커맨드) 추가를 할 때마다 show() 함수의 수정이 필요해진다.  
+만약 위와 같은 구조로 Wizard 클래스를 구현한다면 페이지(커맨드) 추가를 할 때마다 show() 함수의 수정이 필요해진다.
+
 그리고 Wizard 클래스는 내부 필드 startPage, endPage, downloadPage에 의존성을 가지기 때문에 필수적으로 
 객체의 정보를 주입해줘야한다.
+
+<hr>
+
+### 책임 연쇄 <small>(Chain Of Responsibility Pattern)</small>
+
+`어떤 요청이 그 요청을 담당하는 객체에 들어오면 해당 요청이 수행 가능할 경우 수행하고 수행하지 못할 경우 다음 요청 수행자에게 책임을 넘기는 방식을 말한다.`
+
+2가지 예를 보면 쉽게 이해할 수 있다.
+
+1. 문서 승인
+2. 로그 남기기
+
+**문서 승인을 예로들면**<br>
+어떤 일반 문서는 팀장까지 승인을 받는다.<br>
+하지만 중요 문서의 경우 팀장을 거쳐서 부장, 사장 까지 승인을 받는 경우가 있을 수 있다.<br>
+
+**로그 남기기를 예로들면**<br>
+* 정보 로그 = 1
+* 디버그 로그 = 2
+* 에러 로그 = 3
+
+각 로그 상수의 숫자를 비교하여 우선순위에 따라 출력될지 말지를 결정할 수 있도록 만들 수 있다.
+
+[어떤 문제를 해결할 수 있는가?]
+1. 요청과 이를 처리하는 수신자간의 커플링이 없어야하는 경우
+2. 요청을 처리하는 수신자가 하나 이상일 경우
+
+
+[데코레이터 패턴과의 비교]  
+데코레이터 패턴과 구조적으로 거의 일치한다.  
+데코레이터 패턴의 경우 모든 클래스가 요청을 수행하지만  
+책임 연쇄 패턴의 경우 단 하나의 클래스만 요청을 수행한다.
+
+하지만 대부분의 연쇄 패턴의 경우 구현이 여러 클래스가 요청을 수행하도록 만든다.  
+예를들어 UI Event 핸들링, 서블릿 필터 등이 있다.
+
+[OCP, SRP 위반 예시]
+![SRP, OCP 위반 예시](_5_chain_of_responsibility/design/OCP_violated.png)<br><small>OCP, SRP를 위반한 구조</small><br><br>
+
+로그를 남기는 함수에서 파일로 쓰는 기능, 메일로 전송하는 기능까지 수행하기 때문에 SRP를 위반하고 있다.<br>
+다른 방식이 추가되면 writeLog 함수 수정이 필요하기 때문에 OCP도 위반한다.
+
+COR(Chain Of Responsibiliy)을 사용하여 이를 해결해보자.
+
+![책임 연쇄 UML 구조](_5_chain_of_responsibility/design/structure.png)<br><small>내가 디자인한 책임 연쇄 패턴 UML</small><br><br>
+![위키피디아 책임 연쇄 UML 구조](_5_chain_of_responsibility/design/wiki_structure.png)<br><small>위키피디아 책임 연쇄 패턴 UML</small><br><br>
+
+<hr>

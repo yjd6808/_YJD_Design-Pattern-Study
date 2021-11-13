@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty methods
+hide empty fields
+
+abstract Logger {
+    - Logger next
+    - int mask
+    --
+    + abstract void writeLog(int logLevel, String msg)
+}
+
+Logger o-l-> Logger
+
+ConsoleLogger .u.|> Logger
+FileLogger .u.|> Logger
+MailLogger .u.|> Logger
+
+
+@enduml
