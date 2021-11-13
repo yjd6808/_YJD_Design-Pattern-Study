@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty fields
+hide empty methods
+
+abstract class RamenRecipe {
+    + void cookRamen();
+    --
+    - void readyForCook();
+    - abstract void pourWater();
+    - abstract void boilRamen();
+    - abstract void waitForMinute();
+}
+note left
+public void cookRamen {
+    readyForCook();
+    pourWater();
+    boilRamen();
+    waitForMinute();
+}
+end note
+
+JungdoRamenRecipe .u.|> RamenRecipe
+HyungdoRamenRecipe .u.|> RamenRecipe
+
+@enduml
