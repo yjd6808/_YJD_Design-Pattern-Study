@@ -9,6 +9,7 @@
 * [책임 연쇄](https://ko.wikipedia.org/wiki/%EC%B1%85%EC%9E%84_%EC%97%B0%EC%87%84_%ED%8C%A8%ED%84%B4)
 * [옵저버](https://ko.wikipedia.org/wiki/%EC%98%B5%EC%84%9C%EB%B2%84_%ED%8C%A8%ED%84%B4)
 * [메멘토](https://songhayoung.github.io/2020/08/26/Design%20Pattern/MementoPattern/)
+* [중재자](https://palpit.tistory.com/entry/Design-Pattern-%EC%A4%91%EC%9E%AC%EC%9E%90Mediator-%ED%8C%A8%ED%84%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4) 
 
 <hr>
 
@@ -284,3 +285,46 @@ C#의 이벤트와 동작방식이 같다 ㅋㅋ
 
 ![메멘토 UML 구조](_7_memento/design/structure.png)<br><small>내가 디자인한 메멘토 패턴 UML</small><br><br>
 ![튜토리얼 포인트 메멘토 UML 구조](_7_memento/design/tp_structure.png)<br><small>튜토리얼 포인트 메멘토 패턴 UML</small><br><br>
+
+<hr>
+
+### 중재자 <small>(Mediator Pattern)</small>
+
+`객체간의 직접적인 통신을 피하기 위해 중간 객체를 만들어 중간 객체를 통해 다른 객체와 통신하는 방법이다.`
+
+우선 중재자를 사용하지 않을 경우를 예를 들어보자  
+
+부동산 중개업자 클래스가 없고 집주인, 입주자, 수리기사, 가구 4종류 클래스가 존재한다.  
+만약 부동산 중개업자가 없을 경우의 UML을 그려보자.  
+
+
+![중재자 미사용 UML 구조](_8_mediator/design/tight_coupling.png)<br><small>중재자 미사용 UML</small><br><br>
+
+매우 복잡한 구조가 탄생했다.  
+내가 만들었지만 이 구조는 나도 나중에 보면 눈이 핑핑 돌기 때문에 나눠서 설명하겠다.
+
+먼저 건물주부터 의존관계를 확인해보자.<br>
+![건물주 기준](_8_mediator/design/tc_building_owner.png)<br><small>건물주 기준 의존관계도</small><br><br>
+
+1. 건물주는 입주자에게 방을 판매할 수 있다  
+2. 건물주는 가구들을 많이 가지고 있다.  
+3. 건물주는 수리기사에게 수리를 요청 할 수 있다.
+
+이제 입주자의 의존관계를 확인해보자.<br>
+![입주자 기준](_8_mediator/design/tc_tenant.png)<br><small>입주자 기준 의존관계도</small><br><br>
+
+1. 입주자는 건물주에게 방을 요청할 수 있다.
+2. 입주자는 수리기사에게 가구 수리를 요청할 수 있다.
+3. 건물주는 수리기사에게 수리를 요청 할 수 있다.
+
+수리기사의 의존관계를 확인해보자.<br>
+![수리기사 기준](_8_mediator/design/tc_repairman.png)<br><small>수리기사 기준 의존관계도</small><br><br>
+
+1. 수리기사는 건물주의 가구를 수리해줄 수 있다.
+
+이렇게 서로 강하게 연결되어 있다.  
+그러면 이제 부동산 중개업자를 둬서 이 답답함을 해소해보자.
+
+![중재자 UML 구조](_8_mediator/design/structure.png)<br><small>내가 디자인한 중재자 패턴 UML</small><br><br>
+![위키피디아 중재자 UML 구조](_8_mediator/design/wiki_structure.png)<br><small>위키피디아 중재자 패턴 UML</small><br><br>
+

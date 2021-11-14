@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty methods
+hide empty fields
+
+class Tenant {
+    입주자
+    --
+    - String name
+    - List<Furniture> furnitures
+    --
+    + void directFix(Furniture)
+    + void requestFix(Furniture, RepairMan)
+    + void requestRoom(BuildingOwner)
+}
+
+class BuildingOwner {
+    건물주
+    --
+    - List<Furniture> furnitures
+    - String name
+    --
+    + void sellRoom(Tenant)
+    + void requestFix(Furniture, RepairMan)
+}
+
+class Furniture {
+    가구
+    --
+    - String name
+    - int durability
+}
+
+class RepairMan {
+    수리 기사
+    --
+    - String name
+    --
+    + void fix(Furniture)
+}
+
+
+RepairMan ..r.> Furniture
+RepairMan ..u.> BuildingOwner
+Tenant o..r.> Furniture         #Transparent
+Tenant ..l.> BuildingOwner      #Transparent
+Tenant ..d.> RepairMan          #Transparent
+BuildingOwner *---> Furniture   #Transparent
+BuildingOwner ...> Tenant       #Transparent
+BuildingOwner ...> RepairMan    #Transparent
+
+@enduml
