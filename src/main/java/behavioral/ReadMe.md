@@ -8,6 +8,7 @@
 * [커맨드](https://victorydntmd.tistory.com/295)
 * [책임 연쇄](https://ko.wikipedia.org/wiki/%EC%B1%85%EC%9E%84_%EC%97%B0%EC%87%84_%ED%8C%A8%ED%84%B4)
 * [옵저버](https://ko.wikipedia.org/wiki/%EC%98%B5%EC%84%9C%EB%B2%84_%ED%8C%A8%ED%84%B4)
+* [메멘토](https://songhayoung.github.io/2020/08/26/Design%20Pattern/MementoPattern/)
 
 <hr>
 
@@ -233,5 +234,53 @@ C#의 이벤트와 동작방식이 같다 ㅋㅋ
 
 <hr>
 
-### fsefes <small>(adfadfa Pattern)</small>
+### 메멘토 <small>(Memento Pattern)</small>
 
+`객체를 이전 상태로 되돌릴 수 있는 기능을 제공하는 디자인 패턴이다.`
+
+메멘토 패턴은 3개의 객체로 구현된다.
+
+1. 오리지네이터(originator)  
+&nbsp;&nbsp;&nbsp;사전적 의미 : 창작자, 창설자, 창시자, 발기인, 시조  
+&nbsp;&nbsp;&nbsp;역할 : 상태를 가지고 있는 객체  
+&nbsp;&nbsp;&nbsp;예시 : 오목 게임 보드(오목판 같은?)  
+
+2. 케어테이커(caretaker)  
+&nbsp;&nbsp;&nbsp;사전적 의미 : 경비원, 관리인, 돌보는 사람  
+&nbsp;&nbsp;&nbsp;역할 : 상태를 관리하는 객체  
+&nbsp;&nbsp;&nbsp;예시 : 오목 기보 기록자  
+   
+3. 메멘토(memento)  
+&nbsp;&nbsp;&nbsp;사전적 의미 : (사람·장소를 기억하기 위한) 기념품  
+&nbsp;&nbsp;&nbsp;역할 : 상태  
+&nbsp;&nbsp;&nbsp;예시 : 오목알 위치
+
+[장점]
+1. 상태기록을 오리지네이터가 하지않고 케어테이커로 분리되어 수행되기 때문에 코드 복잡성이 감소한다.
+2. 복구 기능을 구현하기가 쉽다.
+3. 캡슐화를 훼손하지 않고 오리지네이터의 내부 상태를 저장하고 복구할 수 있게해준다.
+
+케어테이커는 오리지네이터에게 메멘토를 요청하고(오리지네이터의 내부 상태를 저장하기 위해) 관리하고 있다가 오리지네이터에게 메멘토를 다시 돌려줄 수 있다(이전 상태로 복구하기 위해). 
+
+[단점]
+1. 상태를 저장하고 복구하는 데 시간이 오래 걸리 수 있다는 단점이 있다.  
+    → 왜 오래 걸리지? 흠.. 오래 안걸리게 만들면 안되나?
+
+
+예를들어 보자.
+
+프로 오목대회가 개최되었다.  
+선수 2명이 오목판에 돌을 두고 있다.  
+그리고 기보를 기록하는 사람이 선수들이 돌을 둘 때마다 오목알의 위치를 기보에 기록 한다.
+
+여기서!
+
+오목판 : 오리지네이터  
+기보 기록자 : 케어테이커  
+오목알의 위치 : 메멘토  
+
+가 될 수 있다. 한번 코드로 옮겨보자
+
+
+![메멘토 UML 구조](_7_memento/design/structure.png)<br><small>내가 디자인한 메멘토 패턴 UML</small><br><br>
+![튜토리얼 포인트 메멘토 UML 구조](_7_memento/design/tp_structure.png)<br><small>튜토리얼 포인트 메멘토 패턴 UML</small><br><br>

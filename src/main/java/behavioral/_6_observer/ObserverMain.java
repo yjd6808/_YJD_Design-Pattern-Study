@@ -5,6 +5,12 @@ import behavioral._6_observer.observer.ConsoleObserver;
 import behavioral._6_observer.observer.HelloObserver;
 import behavioral._6_observer.observer.TimeObserver;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Observable;
+import java.util.Observer;
+
+
 public class ObserverMain {
 	public static void main(String[] args) {
 		ConsoleManager consoleManager = ConsoleManager.getInstance();

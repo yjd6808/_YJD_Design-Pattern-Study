@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide empty methods
+hide empty fields
+
+class OmokBoard<<Originator>> {
+    - OmokStoneState[][] omokStoneBoard
+    --
+    + OmokStoneMap createMemento()
+    + void setMemento(OmokStoneMap)
+
+    + void put(OmokStoneState state)
+    + void draw()
+}
+
+class OmokRecorder<<Caretaker>> {
+    - List<OmokStoneMap> records
+    - int pos
+    --
+    + void addMemento(OmokStoneMap)
+    + undo()
+    + redo()
+}
+
+class OmokStoneMap<<Memento>> {
+    - OmokStoneState[][] omokStoneBoard
+    --
+    + OmokStoneMap(OmokStoneState[][] board)
+    --
+    OmokStoneState[][] getStoneBoard()
+}
+
+class OmokStoneState {
+    - StoneColor color
+    - int x
+    - int y
+}
+
+OmokRecorder *-d-> OmokStoneMap
+OmokBoard .r.> OmokStoneMap
+OmokBoard *-r-> OmokStoneState
+OmokStoneMap *-d-> OmokStoneState
+
+@enduml
