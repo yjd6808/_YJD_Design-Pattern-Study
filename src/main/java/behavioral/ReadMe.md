@@ -9,7 +9,8 @@
 * [책임 연쇄](https://ko.wikipedia.org/wiki/%EC%B1%85%EC%9E%84_%EC%97%B0%EC%87%84_%ED%8C%A8%ED%84%B4)
 * [옵저버](https://ko.wikipedia.org/wiki/%EC%98%B5%EC%84%9C%EB%B2%84_%ED%8C%A8%ED%84%B4)
 * [메멘토](https://songhayoung.github.io/2020/08/26/Design%20Pattern/MementoPattern/)
-* [중재자](https://palpit.tistory.com/entry/Design-Pattern-%EC%A4%91%EC%9E%AC%EC%9E%90Mediator-%ED%8C%A8%ED%84%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4) 
+* [중재자](https://palpit.tistory.com/entry/Design-Pattern-%EC%A4%91%EC%9E%AC%EC%9E%90Mediator-%ED%8C%A8%ED%84%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4)
+* [방문자](https://icksw.tistory.com/261)
 
 <hr>
 
@@ -327,4 +328,78 @@ C#의 이벤트와 동작방식이 같다 ㅋㅋ
 
 ![중재자 UML 구조](_8_mediator/design/structure.png)<br><small>내가 디자인한 중재자 패턴 UML</small><br><br>
 ![위키피디아 중재자 UML 구조](_8_mediator/design/wiki_structure.png)<br><small>위키피디아 중재자 패턴 UML</small><br><br>
+
+<hr>
+
+### 방문자 <small>(Visitor Pattern)</small>
+
+`알고리즘(기능)을 객체에서 분리시키는 디자인 패턴`
+
+예를들어 동그라미, 사각형, 육각형 도형들이 있다.<br>
+그리고 이 도형들은 배경색, 전경색, 위치 프로퍼티들을 가지고있다<br>
+이를 클래스로 표현해보면 아래와 같다.<br>
+
+![기능 분리 전](_9_visitor/design/before_seperate.png)<br><small>기능 분리 전</small><br><br>
+
+도형은 다음의 기능을 가지고 있다.
+
+1. 배경색 변경기능 - setBackgroundColor()
+2. 전경색 변경기능 - setForegroundColor()
+3. 위치 변경기능 - setPosition()
+4. 도형정보 출력기능 - printInfo()
+
+이를 방문자 패턴을 적용하여 도형과 기능을 분리해보자.
+
+
+![방문자 UML 구조 버전1](_9_visitor/design/structurev1.png)<br><small>내가 디자인한 방문자 패턴 UML (버전1)</small><br><br>
+
+방문자 패턴을 적용하여 Shape 클래스에서 기능이 분리되어나온 Visitor 객체들이 생겼다.<br>
+
+정리하자면 다음과 같다.
+
+1. Shape 클래스의 구조가 매우 단순해졌다.
+2. Shape 클래스의 기능들이 분리되고 모두 객체화 되었다.
+
+즉 이는 클래스 OCP를 준수하기 매우 적합한 구조로 변모했음을 알 수 있다.<br>
+왜 OCP를 준수하기 좋은 구조인가?<br>
+
+우리는 도형에 기능을 추가할 때 Shape 클래스의 코드를 수정하지 않고 방문자(Visitor)객체를
+추가 함으로써 OCP를 준수할 수 있기때문이다.
+
+물론 단점도 있어보인다.<br>
+기능 각각마다 클래스가 만들어지므로 클래스 관리가 점점 어려워질 수 있어보인다.
+
+아.. 사실 구조를 만들면서 뿜어져나온 내 생각을 적은거라.. 뭐.. ㅠㅠ<br>
+다른 사람 적은거좀 봐야겠다.<br>
+
+<br>
+
+![위키피디아 방문자 UML 구조](_9_visitor/design/wiki_structure.png)<br><small>위키피디아 방문자 패턴 UML</small><br><br>
+
+Shape의 기능이 모두 객체로 분리되어 실행되는 모습을 확인할 수 있었다.
+
+우선 방문자 패턴이 쓰이는 경우를 확인하고 다시 분석해보자.
+
+[방문자 패턴을 사용하는 경우]
+1. 복잡한 구조의 모든 원소들에 대해 방문(visit)하여 작업을 수행해야할 경우
+2. 클래스 계층 구조에서 몇몇 단계에 있는 클래스에만 기능을 사용하고자 할 경우
+
+1번은 확실히 잘 수행되고 있다.
+하지만 2번은 아예 적용되지 않은 모습이다.
+
+각 방문자 객체마다 모든 도형에 대해서 기능을 적용시키기 때문이다.<br>
+2번을 확인할려면 visitor의 수정이 좀 필요하다.<br>
+2번 구조도 확인 가능하도록 한번 다시 수정해보겠다.<br>
+
+
+![방문자 UML 구조 버전2](_9_visitor/design/structurev2.png)<br><small>내가 디자인한 방문자 패턴 버전2 UML</small><br><br>
+
+배경색, 전경색, 정보 출력기능을 제거했다.<br>
+그리고 움직임에 대한 제어기능을 추가해보았다. 
+
+* HaxagonPositioningShapeVisitor : 육각형만 움직일 수 있다.
+* RectanglePositioningShapeVisitor : 사각형만 움직일 수 있다.
+* CirclePositioningShapeVisitor : 동그라미만 움직일 수 있다.
+
+한번 버전1과 버전2 모두 코드로 옮겨보자<br>
 

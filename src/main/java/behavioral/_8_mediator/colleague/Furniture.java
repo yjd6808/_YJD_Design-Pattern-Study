@@ -8,10 +8,6 @@ public class Furniture {
 		this.name = name;
 	}
 
-	public int getDurability() {
-		return durability;
-	}
-
 	public void setDurability(int durability) {
 		this.durability = durability;
 	}

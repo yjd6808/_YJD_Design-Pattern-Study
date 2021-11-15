@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!theme reddress-darkgreen
+
+hide empty fields
+hide empty methods
+
+package visitor {
+    interface ShapeVisitor<<Visitor>> {
+        void visit(Shape)
+    }
+
+    abstract ColoringShapeVisitor {
+        - unsigned int color
+    }
+
+    class PositioningShapeVisitor {
+        - int x
+        - int y
+    }
+
+    ColoringShapeVisitor .u.|> ShapeVisitor
+    BGColoringShapeVisitor .u.|> ColoringShapeVisitor
+    FGColoringShapeVisitor .u.|> ColoringShapeVisitor
+    PositioningShapeVisitor .r.|> ShapeVisitor
+    PrintingInfoShapeVisitor .r.|> ShapeVisitor
+    PrintingInfoShapeVisitor .u.> PositioningShapeVisitor #Transparent
+}
+
+package shape {
+    abstract Shape<<Element>> {
+        - unsigned int backgroundColor
+        - unsigned int foregroundColor
+        - int x
+        - int y
+        --
+        + void accept(ShapeVisitor visitor)
+    }
+
+    Circle .u.|> Shape
+    Hexagon .u.|> Shape
+    Rectangle .u.|> Shape
+}
+
+ShapeVisitor .r.> Shape
+Shape .l.> ShapeVisitor
+
+
+
+
+
+
+
+@enduml

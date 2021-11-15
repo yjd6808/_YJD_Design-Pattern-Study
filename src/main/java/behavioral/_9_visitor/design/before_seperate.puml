@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!theme reddress-darkgreen
+
+hide empty fields
+hide empty methods
+
+package shape {
+    abstract Shape<<Element>> {
+        - unsigned int backgroundColor
+        - unsigned int foregroundColor
+        - int x
+        - int y
+        --
+        + void setForegroundColor(unsigned int)
+        + void setBackgroundColor(unsigned int)
+        + void setPosition(int x, int y)
+        + void printInfo()
+    }
+
+    Circle .u.|> Shape
+    Hexagon .u.|> Shape
+    Rectangle .u.|> Shape
+}
+
+@enduml
