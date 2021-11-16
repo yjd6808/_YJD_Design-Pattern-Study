@@ -1,0 +1,60 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!theme reddress-darkgreen
+
+hide empty fields
+hide empty methods
+
+package iterator {
+    interface "Iterator<T>" {
+        + bool hasNext()
+        + T next()
+    }
+
+    class "ListIterator<T>" {
+        - ListNode<T> iterator
+    }
+
+    class "ArrayIterator<T>" {
+        - int iterator
+    }
+
+    "ListIterator<T>" .u.|> "Iterator<T>"
+    "ArrayIterator<T>" .u.|> "Iterator<T>"
+}
+
+package container {
+    interface "IContainer<T>" {
+        + void add(T data)
+        + void remove(T data)
+        + Iterator<T> iterator()
+    }
+
+    class "ArrayList<T>" {
+        - T[] datas
+        - int size
+    }
+
+    class "LinkedList<T>" {
+        - ListNode<T> head
+        - ListNode<T> tail
+        - int size
+    }
+
+    "IContainer<T>" .d.> "Iterator<T>"
+    "LinkedList<T>" .r.|> "IContainer<T>"
+    "ArrayList<T>" .r.|> "IContainer<T>"
+    "ArrayList<T>" .d.> "LinkedList<T>" #transparent
+}
+
+
+class "ListNode<T>" {
+    - T data
+    - ListNode<T> next
+}
+
+"ListIterator<T>" .l.> "ListNode<T>"
+"LinkedList<T>" .d.> "ListNode<T>"
+
+@enduml

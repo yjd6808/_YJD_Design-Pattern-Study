@@ -11,6 +11,7 @@
 * [메멘토](https://songhayoung.github.io/2020/08/26/Design%20Pattern/MementoPattern/)
 * [중재자](https://palpit.tistory.com/entry/Design-Pattern-%EC%A4%91%EC%9E%AC%EC%9E%90Mediator-%ED%8C%A8%ED%84%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4)
 * [방문자](https://icksw.tistory.com/261)
+* [반복자](https://ko.wikipedia.org/wiki/%EB%B0%98%EB%B3%B5%EC%9E%90_%ED%8C%A8%ED%84%B4)
 
 <hr>
 
@@ -403,3 +404,18 @@ Shape의 기능이 모두 객체로 분리되어 실행되는 모습을 확인할 수 있었다.
 
 한번 버전1과 버전2 모두 코드로 옮겨보자<br>
 
+<hr>
+
+### 반복자 <small>(Iterator Pattern)</small>
+
+`컨테이너를 순회하고 요소들에 접근하기 위한 디자인 패턴이다.`
+
+반복자 패턴은 컨테이너와 기능을 분리시킨다.<br>
+일부 컨테이너의 특화된 기능들의 경우에는 분리가 불가능하다.
+
+[특징]
+1. 컨테이너 객체는 내부 구조를 노출하지 않고 원소들에 접근하는 방법을 제공한다.
+2. 컨테이너의 인터페이스를 변경하지 않고 새로운 순회 기능을 제공할 수 있다.
+
+![반복자 UML 구조](_10_iterator/design/structure.png)<br><small>내가 디자인한 반복자 패턴 UML</small><br><br>
+![위키피디아 반복자 UML 구조](_10_iterator/design/wiki_structure.png)<br><small>위키피디아 반복자 패턴 UML</small><br><br>
